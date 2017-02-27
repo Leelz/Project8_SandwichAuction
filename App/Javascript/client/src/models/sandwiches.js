@@ -5,7 +5,7 @@ var Sandwiches = function(){
 }
 
 Sandwiches.prototype = {
-  makeRequest: function(url, callback){
+  makeRequest: function(url, callback) {
     var request = new XMLHttpRequest();
     request.open("GET", url, false);
     request.onload = callback;
@@ -30,9 +30,11 @@ Sandwiches.prototype = {
     request.send();
   },
 
+//rails server -p 5000
+
   allSandwiches: function(callback){
     var self = this;
-    this.makeRequest("http://localhost:3000/sandwiches", function(){
+    this.makeRequest("http://localhost:5000/customers", function(){
       if(this.status !== 200) return;
       var jsonString = this.responseText;
       var results = JSON.parse(jsonString);
@@ -43,7 +45,7 @@ Sandwiches.prototype = {
 
   allAPI: function(callback){
   var self = this;
-    this.makeRequest("http://localhost:3000/sandwiches/api", function() {
+    this.makeRequest("http://localhost:5000/customers", function() {
       if (this.status !== 200){
         return;
       }
@@ -53,14 +55,14 @@ Sandwiches.prototype = {
     });
   }, 
 
-  populateSandwichesList: function(results){
-    var sandwiches = [];
-    for (var result of results){
-      var sandwich = new Sandwich (result);
-    sandwiches.push(sandwich);
-    }
-    return sandwiches;
-  }
+  // populateSandwichesDropdown: function(results){
+  //   var sandwiches = [];
+  //   for (var result of results){
+  //     var sandwich = new Sandwich (result);
+  //   sandwiches.push(sandwich);
+  //   }
+  //   return sandwiches;
+  // }
 
 }
 

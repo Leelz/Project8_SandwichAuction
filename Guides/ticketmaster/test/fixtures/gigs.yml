@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  date: 2017-02-21 10:11:15
+  artist: one
+  venue: one
+
+two:
+  price: 1
+  date: 2017-02-21 10:11:15
+  artist: two
+  venue: two

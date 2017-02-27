@@ -17,7 +17,7 @@ MapWrapper.prototype = {
     return marker;
   },
 
-  
+
   panTo: function(lat, lng){
     this.googleMap.panTo(new google.maps.LatLng(lat,lng));
     this.googleMap.setZoom(2);

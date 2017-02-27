@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notflix</title>
+    <title>Sandwich Auction</title>
     <script src='bundle.js'></script>
     <script src = "https://maps.googleapis.com/maps/api/js"></script>
     <link rel='stylesheet' type='text/css' href='main.css'>
@@ -17,14 +17,33 @@
       </div>
 
     <div id = "sub-container">
+
+
       <div id = "select-container">
         <div id = "fillings">
-          <H3>Selet A Filling: <select id="filling-selector"></select></H3>
+          <H3>Select A Filling: <select id="filling-selector"></select></H3>
+        </div>
+
+        <div id = "breads">
+          <H3>Bread: <select id="bread-selector"></select></H3>
         </div>
 
         <div id = "button">
           <button id = "offer-button">New Offer</button>
         </div>
+
+        <main>
+          <div id="orders">
+            <table id ="orderHistory">
+              <tr>
+                <th>Fillings</th>
+                <th>Bread</th>
+                <th>Price</th> 
+                <th>Quantity</th>
+              </tr>
+            </table>
+          </div>
+        </main>
       </div>
     </div>
     </div>

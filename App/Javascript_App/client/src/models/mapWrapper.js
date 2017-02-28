@@ -11,16 +11,9 @@ MapWrapper.prototype = {
     var marker = new google.maps.Marker({
       position: coords,
       map: this.googleMap,
-      animation: google.maps.Animation.DROP
     });
     console.log("marker added");
     return marker;
-  },
-
-
-  panTo: function(lat, lng){
-    this.googleMap.panTo(new google.maps.LatLng(lat,lng));
-    this.googleMap.setZoom(2);
   },
 
   addInfoWindow: function(map, marker, contentString){
@@ -42,7 +35,6 @@ MapWrapper.prototype = {
             content: "<h2>Home</h2>",
           });
 
-      // var infoWindow = this.addInfoWindow(this.googleMap, marker, "<h2>Home</h2>");
       infoWindow.open(this.googleMap, marker);
     }.bind(this));
   }

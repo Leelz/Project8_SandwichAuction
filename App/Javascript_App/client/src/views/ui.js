@@ -1,4 +1,4 @@
-// var MapWrapper = require("../models/mapWrapper.js");
+var MapWrapper = require("../models/mapWrapper.js");
 var Sandwiches = require("../models/sandwiches.js");
 var Sandwich = require("../models/sandwich.js");
 

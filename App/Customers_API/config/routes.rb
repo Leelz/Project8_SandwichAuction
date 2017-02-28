@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :customers do 
-    resources :sandwiches
+  resources :orders do 
+    resources :orderedsandwiches
   end
 
 end

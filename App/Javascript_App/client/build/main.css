@@ -1,0 +1,7 @@
+#mapDiv{
+  border: solid 1px white;
+  border-radius: 3px;
+  height: 280px;
+  margin: 2px;
+  transition: all .4s ease-in-out;
+}

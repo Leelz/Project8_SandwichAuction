@@ -10,23 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226163059) do
+ActiveRecord::Schema.define(version: 20170228115213) do
 
-  create_table "customers", force: :cascade do |t|
+  create_table "breads", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
   end
 
-  create_table "sandwiches", force: :cascade do |t|
-    t.string   "filling"
-    t.string   "bread"
-    t.integer  "quantity"
-    t.integer  "price"
-    t.integer  "customer_id"
+  create_table "fillingchoices", force: :cascade do |t|
+    t.integer  "filling_id"
+    t.integer  "sandwich_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["customer_id"], name: "index_sandwiches_on_customer_id"
+    t.index ["filling_id"], name: "index_fillingchoices_on_filling_id"
+    t.index ["sandwich_id"], name: "index_fillingchoices_on_sandwich_id"
+  end
+
+  create_table "fillings", force: :cascade do |t|
+    t.string   "filling"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orderedsandwiches", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "sandwich_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["order_id"], name: "index_orderedsandwiches_on_order_id"
+    t.index ["sandwich_id"], name: "index_orderedsandwiches_on_sandwich_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "price"
+    t.datetime "date"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sandwiches", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "bread_id"
+    t.index ["bread_id"], name: "index_sandwiches_on_bread_id"
   end
 
 end

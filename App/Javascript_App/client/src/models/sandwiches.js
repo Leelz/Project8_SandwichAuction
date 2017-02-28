@@ -35,7 +35,7 @@ Sandwiches.prototype = {
 allOrdered: function(callback){
 var self = this;
 console.log("this works")
-  this.makeRequest("http://localhost:5000/customers", function() {
+  this.makeRequest("http://localhost:5000/orders", function() {
     if (this.status !== 200)
       return;      
     var jsonString = this.responseText;
@@ -47,7 +47,7 @@ console.log("this works")
 
 // allAPI: function(callback){
 //   var self = this;
-//   this.makeRequest("http://localhost:5000/customers", function(){
+//   this.makeRequest("http://localhost:5000/orders", function(){
 //     if(this.status !== 200) 
 //       return;
 //     var jsonString = this.responseText;

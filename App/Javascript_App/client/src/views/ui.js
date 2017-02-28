@@ -58,28 +58,36 @@ UI.prototype = {
 
   populateOrdersHistory: function(orders) {
 
-      orders.forEach( function( order ) {
-        order.sandwiches.forEach( function( sandwich ) {
+    orders.forEach( function( order ){
+      var date = order.date
+      var orderedsandwiches = order.orderedsandwiches
+      orderedsandwiches.forEach( function( orderedsandwich ) {
+        var price = orderedsandwich.sandwich.price
+        var quantity = orderedsandwich.sandwich.quantity
+        var bread = orderedsandwich.sandwich.bread.name
+        var fillingChoicesArray = orderedsandwich.sandwich.fillingchoices
+        fillingChoicesArray.forEach( function( fillingchoice ) {
+          var filling = fillingchoice.filling.filling
+          console.log(filling)
 
-        var table = document.getElementById("orderHistory");
+    var table = document.getElementById("orderHistory");
 
-      var row = table.insertRow(0);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      
-      console.log(sandwich)
-      cell1.innerHTML = sandwich.filling;
-      cell2.innerHTML = sandwich.bread;
-      cell3.innerHTML = sandwich.quantity;
-      cell4.innerHTML = sandwich.price;
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
 
-      table.appendChild(row)
+    cell1.innerHTML = bread;
+    cell2.innerHTML = filling;
+    cell3.innerHTML = price;
+    cell4.innerHTML = quantity;
+
+    table.appendChild(row)
+        })
+      })
     })
-    });
   }
-
 }
 
 module.exports = UI;

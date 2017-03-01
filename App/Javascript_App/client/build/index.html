@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sandwich Auction</title>
-    <script src='bundle.js'></script>
-    <script src = "https://maps.googleapis.com/maps/api/js"></script>
-    <link rel='stylesheet' type='text/css' href='main.css'>
-  </head>
-  <body>
-    <div id='app' />
-    <script src='bundle.js'></script>
-
-    <div id = "main-container">
-      <div id = "leftcontainer">
-        <div id = "mapDiv"></div>
+<head>
+  <title>Sandwich Auction</title>
+  <script src='bundle.js'></script>
+  <script src = "https://maps.googleapis.com/maps/api/js"></script>
+  <link rel='stylesheet' type='text/css' href='main.css'>
+</head>
+<body>
+  <div id = header>
+    <h1>ATTENBOROUGH'S ARK</h1>
+    <p>travel discover protect</p>
+  </div>
+  <hr>
+  <div id = "main-container">
+    <div id = "lhs">
+      <div id = "mapDiv"></div>
       
-      </div>
+    </div>
 
-    <div id = "sub-container">
+    <div id = "rhs">
+      <div id = "sub-container">
+        <div id = "select-container">
+          <div id = "fillings">
+            <H3>Select A Filling: 
+              <select id="filling-selector"></select></H3>
+            </div>
 
+            <div id = "breads">
+              <H3>Bread: <select id="bread-selector"></select></H3>
+            </div>
 
-      <div id = "select-container">
-        <div id = "fillings">
-          <H3>Select A Filling: 
-          <select id="filling-selector"></select></H3>
-        </div>
+            <form>
+              <h3>Offer Price <input type="text" id="offer"></h3>
+              <h3>Quantity <input type="text" id="quantity"></h3>
+            </form>
 
-        <div id = "breads">
-          <H3>Bread: <select id="bread-selector"></select></H3>
-        </div>
+            <div id = "button"><br>
+              <button id = "offer-button">New Offer</button>
+            </div>
 
-        <form>
-          <h3>Offer Price <input type="text" id="offer"></h3>
-          <h3>Quantity <input type="text" id="quantity"></h3>
-        </form>
+            <div id = "button"><br>
+              <button id = "new-sandwich">Create your own</button>
+            </div>
 
-        <div id = "button"><br>
-          <button id = "offer-button">New Offer</button>
-        </div>
+            <div id = "submitCustom"><br>
+              <button id = "custom-sandwich">Submit custom sandwich</button>
+            </div>
 
-        <div id = "button"><br>
-          <button id = "new-sandwich">Create your own</button>
-        </div>
+            <main>
+              <div id="orders">
+                <table id ="newOrders">
+                  <tr>
+                    <th>Bread</th>
+                    <th>Fillings</th>
+                    <th>Price</th> 
+                    <th>Quantity</th>
+                  </tr>
+                </table>
 
-        <div id = "submitCustom"><br>
-          <button id = "custom-sandwich">Submit custom sandwich</button>
-        </div>
-
-        <main>
-          <div id="orders">
-          <table id ="newOrders">
-            <tr>
-              <th>Bread</th>
-              <th>Fillings</th>
-              <th>Price</th> 
-              <th>Quantity</th>
-            </tr>
-          </table>
-
-            <table id ="orderHistory"><br>
-              <tr>
-                <th>Bread</th>
-                <th>Fillings</th>
-                <th>Price</th> 
-                <th>Quantity</th>
-              </tr>
-            </table>
+                <table id ="orderHistory"><br>
+                  <tr>
+                    <th>Bread</th>
+                    <th>Fillings</th>
+                    <th>Price</th> 
+                    <th>Quantity</th>
+                  </tr>
+                </table>
+              </div>
+            </main>
           </div>
-        </main>
+        </div>
       </div>
-    </div>
-    </div>
 
-  </body>
-</html>
+    </body>
+    </html>

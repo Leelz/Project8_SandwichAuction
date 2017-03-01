@@ -1,3 +1,7 @@
+body{
+  background-color: #B9D094
+}
+
 #mapDiv{
   border: solid 1px white;
   border-radius: 3px;

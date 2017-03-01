@@ -128,22 +128,26 @@ UI.prototype = {
   },
 
   handleCustomSubmit: function() {
-   var offer = document.querySelector("#bread-input").value
-   var bread = document.querySelector("#filling-input").value
-   var filling = document.querySelector("#offer-input").value
-   var quantity = document.querySelector("#bread-input").value
+   var bread = document.querySelector("#bread-input").value
+   var filling = document.querySelector("#filling-input").value
+   var price = document.querySelector("#offer-input").value
+   var quantity = document.querySelector("#quantity-input").value
    var date = document.querySelector("#date-input").value
 
-   // var newSandwich = {
-   //   bread: bread
-   //   filling: filling
-   //   offer: offer
-   //   quantity: quantity
-   //   date: date
-   // }
+   var newSandwich = {
+    order: {
+         bread: bread,
+         filling: filling,
+         price: price,
+         quantity: quantity,
+         date: date
+      }
+    }
+
+    console.log(newSandwich)
 
    var sandwiches = new Sandwiches();    
-   sandwiches.makePost("/orders", newSandwich, function(data){
+   sandwiches.makePost("http://localhost:5000/orders", newSandwich, function(data){
      console.log(data);
    });
    
@@ -178,11 +182,11 @@ UI.prototype = {
     bread.id = "bread-input";
     filling.id = "filling-input";
     price.id = "offer-input";
-    quantity.id = "bread-input";
+    quantity.id = "quantity-input";
     date.id = "date-input";
 
     breadHeader.textContent = "Bread:" 
-    fillingHeader.textContent = "Offer Price:"
+    fillingHeader.textContent = "Filling:"
     priceHeader.textContent = "Quantity:" 
     quantityHeader.textContent = "New Offer:"
     dateHeader.textContent = "Today's Date:"

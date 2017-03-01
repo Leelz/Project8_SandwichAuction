@@ -59,12 +59,17 @@ class OrdersController < ApplicationController
   def create
     order = Order.create(order_params)
     bread = Bread.create( order_params)
+    sandwich = Sandwich.create( order_params)
+    filling = Filling.create( order_params)
     render :json => order
   end
 
   private
   def order_params
-    params.require(:order).permit(:sandwich)
+    params.require(:order).permit(:date) #create new :sandwich?
+    params.require(:bread).permit(:date, :name)
+    params.require(:sandwich).permit(:price, :quantity)
+    params.require(:filling).permit(:filling)
   end
 
 end

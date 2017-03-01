@@ -1,7 +1,7 @@
 // var MongoClient = require("mongodb").MongoClient;
 
 
-//Change mongo to the Rails API!!!
+// Change mongo to the Rails API!!!
 
 
 // var SandwichQuery = function(){

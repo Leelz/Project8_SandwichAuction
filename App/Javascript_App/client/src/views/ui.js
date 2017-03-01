@@ -134,11 +134,17 @@ UI.prototype = {
     var price = document.createElement('input');
     var quantity = document.createElement('input');
 
-    div.textContent =
-    div.textContent =
-    div.textContent =
-    div.textContent =
+    bread.id = "bread-input"
+    filling.id = "filling-input"
+    price.id = "offer-input"
+    quantity.id = "bread-input"
 
+    breadHeader.textContent = "Bread:" 
+    fillingHeader.textContent = "Offer Price"
+    priceHeader.textContent = "Quantity" 
+    quantityHeader.textContent = "New Offer"
+
+    
 
     document.body.appendChild(div);
   }

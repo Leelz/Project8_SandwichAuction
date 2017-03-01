@@ -9,9 +9,9 @@ f1 = Filling.create( {filling: 'ham and cheese'} )
 f2 = Filling.create( {filling: 'pesto and pork'} )
 f3 = Filling.create( {filling: 'salami'} )
 
-o1 = Order.create( {price: 5, date: "2017-01-14"} )
-o2 = Order.create( {price: 7, date: "2017-01-07"} )
-o3 = Order.create( {price: 10, date: "2017-01-01"} )
+o1 = Order.create( {date: "2017-01-14"} )
+o2 = Order.create( {date: "2017-01-07"} )
+o3 = Order.create( {date: "2017-01-01"} )
 
 b1 = Bread.create( {name: "brioche"} )
 b2 = Bread.create( {name: "soft bap"} )

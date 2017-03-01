@@ -4,4 +4,7 @@ Rails.application.routes.draw do
     resources :orderedsandwiches
   end
 
+  resources :breads
+  resources :fillings
+
 end

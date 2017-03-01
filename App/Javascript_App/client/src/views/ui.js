@@ -122,6 +122,27 @@ UI.prototype = {
 
   },
 
+  createSandwichForm: function() {
+    var div = document.createElement('sandiwchDiv');
+    var breadHeader = document.createElement('h3');
+    var fillingHeader = document.createElement('h3');
+    var priceHeader = document.createElement('h3');
+    var quantityHeader = document.createElement('h3');
+
+    var bread = document.createElement('input');
+    var filling = document.createElement('input');
+    var price = document.createElement('input');
+    var quantity = document.createElement('input');
+
+    div.textContent =
+    div.textContent =
+    div.textContent =
+    div.textContent =
+
+
+    document.body.appendChild(div);
+  }
+
   populateOrdersHistory: function(orders) {
 
     orders.forEach( function( order ){

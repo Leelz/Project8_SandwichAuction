@@ -16,14 +16,15 @@ MapWrapper.prototype = {
     return marker;
   },
 
-  addInfoWindow: function(map, marker, contentString){
-    var infoWindow = new google.maps.InfoWindow({
-          content: contentString,
-        });
-      marker.addListener("click", function(){
-      infoWindow.open(this.googleMap, marker);
-    })
-  },
+ addInfoWindow: function(coords, text) {
+   var marker = this.addMarker(coords);
+   marker.addListener('click', function() {
+     var infoWindow = new google.maps.InfoWindow({
+       content: text
+     });
+     infoWindow.open(this.map, marker); 
+   });
+ },
 
   geoLocate: function(){
     navigator.geolocation.getCurrentPosition(function(position) {

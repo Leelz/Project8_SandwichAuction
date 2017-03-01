@@ -6,11 +6,13 @@ var app = function() {
   // creates the map
   mapDiv = document.querySelector("#mapDiv");
   var centre = {lat: 56, lng: -3 };
+  var peppers = {lat: 55.9461777, lng: -3.203433}
   this.map = new MapWrapper(centre, 15);
+  this.map.addInfoWindow(peppers, "Peppers");
   this.map.geoLocate();
 
   var ui = new UI(this.map);
-  
+
 }
 
 window.onload = app;

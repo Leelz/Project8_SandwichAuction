@@ -34,8 +34,31 @@ Sandwiches.prototype = {
 
 allOrdered: function(callback){
 var self = this;
-console.log("this works")
   this.makeRequest("http://localhost:5000/orders", function() {
+    if (this.status !== 200)
+      return;      
+    var jsonString = this.responseText;
+    var result = JSON.parse(jsonString);
+    callback(result);
+  });
+}, 
+
+allFillings: function(callback){
+var self = this;
+console.log("this is working")
+  this.makeRequest("http://localhost:5000/fillings", function() {
+    if (this.status !== 200)
+      return;      
+    var jsonString = this.responseText;
+    var result = JSON.parse(jsonString);
+    callback(result);
+  });
+}, 
+
+allBreads: function(callback){
+var self = this;
+console.log("this is working")
+  this.makeRequest("http://localhost:5000/breads", function() {
     if (this.status !== 200)
       return;      
     var jsonString = this.responseText;
@@ -43,29 +66,7 @@ console.log("this works")
     console.log(result)
     callback(result);
   });
-}, 
-
-// allAPI: function(callback){
-//   var self = this;
-//   this.makeRequest("http://localhost:5000/orders", function(){
-//     if(this.status !== 200) 
-//       return;
-//     var jsonString = this.responseText;
-//     var results = JSON.parse(jsonString);
-//     var sandwichesAPI = self.populateDropDownList(results);
-//     callback(countriesAPI);
-//   })
-// },
-
-// populateDropDownList: function(results){
-//   var sandwichFillings = [];
-//   for (var result of results){
-//     var country = new Country (result);
-//   Countries.push(country);
-//   }
-//   return Countries;
-// }
-
+}
 
 }
 

@@ -8,11 +8,21 @@ var UI = function(map){
 
   this.sandwiches = new Sandwiches();
 
-
-//change the following funciton so that it fetches sandwich orders from database
   this.sandwiches.allOrdered(function(result){
     this.populateOrdersHistory(result);
   }.bind(this));
+
+  this.sandwiches.allFillings(function(result){
+    this.renderDropDownList(result);
+  }.bind(this));
+
+  this.sandwiches.allBreads(function(result){
+    this.renderBreadDropDownList(result);
+  }.bind(this));
+
+  var submitButton = document.querySelector("#offer-button");
+  submitButton.onclick = this.handleSubmitButton.bind(this);
+
 }
 
 UI.prototype = {
@@ -55,6 +65,62 @@ UI.prototype = {
   //     )
   // },
 
+  renderDropDownList: function(fillingsAPI){
+    var fillingSelect = document.querySelector("#filling-selector");
+    fillingSelect.innerHTML = ""
+
+    var unselectable = document.createElement("option");
+    unselectable.innerText = "Filling:"
+    unselectable.disabled = true;
+    unselectable.selected = true;
+    fillingSelect.appendChild(unselectable);
+
+    for (var object of fillingsAPI){
+      var fillingChoice = document.createElement("option");
+      fillingChoice.innerText = object.filling;
+      fillingSelect.appendChild(fillingChoice);
+    }
+  },
+
+  renderBreadDropDownList: function(breadsAPI){
+    var breadSelect = document.querySelector("#bread-selector");
+    breadSelect.innerHTML = ""
+
+    var unselectable = document.createElement("option");
+    unselectable.innerText = "Bread:"
+    unselectable.disabled = true;
+    unselectable.selected = true;
+    breadSelect.appendChild(unselectable);
+
+    for (var object of breadsAPI){
+      var breadChoice = document.createElement("option");
+      breadChoice.innerText = object.name;
+      breadSelect.appendChild(breadChoice);
+    }
+  },
+
+  handleSubmitButton: function() {
+    var offer = document.querySelector("#offer").value
+    var bread = document.querySelector("#bread-selector").value
+    var filling = document.querySelector("#filling-selector").value
+    var quantity = document.querySelector("#quantity").value
+
+    var ordersTable = document.getElementById("newOrders");
+
+    var row = ordersTable.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+
+    cell1.innerHTML = bread;
+    cell2.innerHTML = filling;
+    cell3.innerHTML = offer;
+    cell4.innerHTML = quantity;
+
+    ordersTable.appendChild(row)
+
+  },
 
   populateOrdersHistory: function(orders) {
 
@@ -68,7 +134,6 @@ UI.prototype = {
         var fillingChoicesArray = orderedsandwich.sandwich.fillingchoices
         fillingChoicesArray.forEach( function( fillingchoice ) {
           var filling = fillingchoice.filling.filling
-          console.log(filling)
 
     var table = document.getElementById("orderHistory");
 

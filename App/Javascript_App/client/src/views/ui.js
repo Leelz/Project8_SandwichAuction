@@ -12,16 +12,16 @@ var UI = function(map){
     this.populateOrdersHistory(result);
   }.bind(this));
 
-  this.sandwiches.allFillings(function(result){
-    this.renderDropDownList(result);
-  }.bind(this));
+  // this.sandwiches.allFillings(function(result){
+  //   this.renderDropDownList(result);
+  // }.bind(this));
 
-  this.sandwiches.allBreads(function(result){
-    this.renderBreadDropDownList(result);
-  }.bind(this));
+  // this.sandwiches.allBreads(function(result){
+  //   this.renderBreadDropDownList(result);
+  // }.bind(this));
 
-  var submitButton = document.querySelector("#offer-button");
-  submitButton.onclick = this.handleSubmitButton.bind(this);
+  // var submitButton = document.querySelector("#offer-button");
+  // submitButton.onclick = this.handleSubmitButton.bind(this);
 
   var submitCustomSandwichButton = document.querySelector("#custom-sandwich");
   submitCustomSandwichButton.onclick = this.handleCustomSubmit.bind(this);
@@ -88,44 +88,43 @@ UI.prototype = {
     }
   },
 
-  renderBreadDropDownList: function(breadsAPI){
-    var breadSelect = document.querySelector("#bread-selector");
-    breadSelect.innerHTML = ""
+  // renderBreadDropDownList: function(breadsAPI){
+  //   var breadSelect = document.querySelector("#bread-selector");
 
-    var unselectable = document.createElement("option");
-    unselectable.innerText = "Bread:"
-    unselectable.disabled = true;
-    unselectable.selected = true;
-    breadSelect.appendChild(unselectable);
+  //   var unselectable = document.createElement("option");
+  //   unselectable.innerText = "Bread:"
+  //   unselectable.disabled = true;
+  //   unselectable.selected = true;
+  //   breadSelect.appendChild(unselectable);
 
-    for (var object of breadsAPI){
-      var breadChoice = document.createElement("option");
-      breadChoice.innerText = object.name;
-      breadSelect.appendChild(breadChoice);
-    }
-  },
+  //   for (var object of breadsAPI){
+  //     var breadChoice = document.createElement("option");
+  //     breadChoice.innerText = object.name;
+  //     breadSelect.appendChild(breadChoice);
+  //   }
+  // },
 
-  handleSubmitButton: function() {
-    var offer = document.querySelector("#offer").value
-    var bread = document.querySelector("#bread-selector").value
-    var filling = document.querySelector("#filling-selector").value
-    var quantity = document.querySelector("#quantity").value
+  // handleSubmitButton: function() {
+  //   var offer = document.querySelector("#offer").value
+  //   var bread = document.querySelector("#bread-selector").value
+  //   var filling = document.querySelector("#filling-selector").value
+  //   var quantity = document.querySelector("#quantity").value
 
-    var ordersTable = document.getElementById("newOrders");
+  //   var ordersTable = document.getElementById("newOrders");
 
-    var row = ordersTable.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
+  //   var row = ordersTable.insertRow(0);
+  //   var cell1 = row.insertCell(0);
+  //   var cell2 = row.insertCell(1);
+  //   var cell3 = row.insertCell(2);
+  //   var cell4 = row.insertCell(3);
 
-    cell1.innerHTML = bread;
-    cell2.innerHTML = filling;
-    cell3.innerHTML = offer;
-    cell4.innerHTML = quantity;
+  //   cell1.innerHTML = bread;
+  //   cell2.innerHTML = filling;
+  //   cell3.innerHTML = offer;
+  //   cell4.innerHTML = quantity;
 
-    ordersTable.appendChild(row)
-  },
+  //   ordersTable.appendChild(row)
+  // },
 
   handleCustomSubmit: function() {
    var bread = document.querySelector("#bread-input").value
@@ -203,6 +202,7 @@ UI.prototype = {
     dateFormDiv.appendChild(date)
 
     subContainer = document.querySelector("#sub-container")
+    topContainer = document.querySelector("#top-container")
 
     subContainer.appendChild(breadFormDiv);
     subContainer.appendChild(fillingFormDiv);

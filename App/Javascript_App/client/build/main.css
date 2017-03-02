@@ -1,5 +1,27 @@
-body{
-  background-color: #B9D094
+body {
+  background-color: #B9D094  }
+
+h1{
+  text-align: center;
+  font-size: 43px;
+  color: #06436A;
+  margin: 0px;
+}
+
+#top-container{
+  display: flex;
+  flex-direction: row
+  background-color: #cccccc;
+  }
+
+#orderTable{
+  width: 300px;
+}
+
+#all-buttons{
+  width: 300px;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 #mapDiv{
@@ -10,6 +32,57 @@ body{
   transition: all .4s ease-in-out;
 }
 
+select{
+  margin-left: 10px;
+}
+
 table th, td {
   border: 1px solid black;
+}
+
+#header{
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+hr{
+  border-width: 1px;
+  border-top: 2px solid #06436A;
+  border-bottom: none;
+}
+
+#rhs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 650px;
+  padding-top: 5px;
+
+}
+
+#lhs{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 650px;
+  padding-top: 5px;
+}
+
+#mapDiv{
+  border: solid 1px white;
+  border-radius: 3px;
+  height: 280px;
+  margin: 2px;
+  transition: all .4s ease-in-out;
+}
+
+#contentDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }

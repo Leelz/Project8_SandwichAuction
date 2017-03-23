@@ -1,4 +1,3 @@
-var Sandwich = require("./sandwich");
 
 var Sandwiches = function(){
 
@@ -66,6 +65,14 @@ console.log("this is working")
     console.log(result)
     callback(result);
   });
+},
+
+makeDeleteRequest: function(url, callback){
+  var request = new XMLHttpRequest();
+  request.open("DELETE", url);
+  request.setRequestHeader("Content-type", "application/json");
+  request.onload = callback;
+  request.send();
 }
 
 }

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bread: MyString
+  filling: MyString
+  price: 1.5
+  date: 2017-04-12
+  time: 1
+
+two:
+  bread: MyString
+  filling: MyString
+  price: 1.5
+  date: 2017-04-12
+  time: 1

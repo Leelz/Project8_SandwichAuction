@@ -1,22 +1,23 @@
-var UI = require("./views/ui");
-var MapWrapper = require("./models/mapWrapper.js");
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Home from './components/Home'
+import Listing from './components/Listing'
+import Main from './components/Main'
+import {Router, Route, IndexRoute, hashHistory} from 'react-router'
 
-var app = function() {
+class App extends React.Component{
 
-  // creates the map
-  mapDiv = document.querySelector("#mapDiv");
-  var centre = {lat: 56, lng: -3 };
-  var peppers = {lat: 55.9461747, lng: -3.201239}
-  var alexanders = {lat: 55.9461243, lng: -3.2037087}
-  var philpotts = {lat: 55.9447575, lng: -3.2069157}
-  this.map = new MapWrapper(centre, 15);
-  this.map.addInfoWindow(peppers, "Peppers");
-  this.map.addInfoWindow(alexanders, "Alexanders");
-  this.map.addInfoWindow(philpotts, "Philpotts");
-  this.map.geoLocate();
-
-  var ui = new UI(this.map);
-
+  render(){
+    return (
+      <Router history={hashHistory}>
+        <Route path='/' component={Main}>
+          <IndexRoute component={Home} />
+          <Route path='/shows' component={Listing} />
+        </Route>
+      </Router>
+    )
+  }
 }
 
-window.onload = app;
+
+ReactDOM.render(<App />, document.getElementById('app'))

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Link, browserHistory } from 'react-router'
-import Show from './Show'
+import Sandwich from './Sandwich'
 
 class Listing extends React.Component {
 
@@ -10,12 +10,12 @@ class Listing extends React.Component {
     this.doSearch = this.doSearch.bind(this)
     this.state = { 
       searchQuery: '', 
-      shows: [] 
+      sandwiches: [] 
     }
   }
 
   componentDidMount(){
-    var url = 'http://localhost:5000/api/shows'
+    var url = 'http://localhost:5000/api/sandwiches'
     var request = new XMLHttpRequest()
     request.open('GET', url)
 
@@ -26,7 +26,7 @@ class Listing extends React.Component {
        if(request.status === 200){
         console.log("request: ", request.responseText)
         var data = JSON.parse(request.responseText)
-        this.setState( { shows: data } )
+        this.setState( { sandwiches: data } )
        } else{
         console.log("Uh oh you're not logged in!")
         browserHistory.goBack()
@@ -43,15 +43,15 @@ class Listing extends React.Component {
     return(
       <div className="listing">
         <nav>
-          <Link to='/' className='title'>notflix</Link>
+          <Link to='/' className='title'>SandwichBay</Link>
           <input className='search-box' type='text' placeholder='Search...' value={this.state.searchQuery} onChange={this.doSearch} />
         </nav>
 
-        <div className='shows-container'>
+        <div className='sandwiches-container'>
           {
-            this.state.shows.filter((show) => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchQuery.toUpperCase()) >= 0)
-             .map((show) => (
-              <Show { ...show } key={show.programmeID}/>
+            this.state.sandwiches.filter((sandwich) => `${sandwich.title} ${sandwich.description}`.toUpperCase().indexOf(this.state.searchQuery.toUpperCase()) >= 0)
+             .map((sandwich) => (
+              <Sandwich { ...sandwich } key={sandwich.programmeID}/>
             ))
 
           }

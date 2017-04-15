@@ -1,64 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import SignIn from './SignIn'
-import SignUp from './SignUp' 
-import SignOut from './SignOut'
 
-class LoginBox extends React.Component {
+class SignIn extends React.Component {
 
-  constructor(props) {
+  constructor(props){
     super(props)
-    this.setUser = this.setUser.bind(this)
+    this.handleOnChangeEmail = this.handleOnChangeEmail.bind(this)
+    this.handleOnChangePassword = this.handleOnChangePassword.bind(this)
+    this.signIn = this.signIn.bind(this)
     this.state = {
-      currentUser: null
+      email:"", 
+      password:""
     }
   }
 
-  setUser(user){
-    this.setState({currentUser:user, favlist:[]})
+  handleOnChangeEmail(event) {
+    this.setState({email: event.target.value})
   }
 
-  fetchUser(){
-    console.log("fetching user")
+  handleOnChangePassword(event) {
+    this.setState({password: event.target.value})
+  }
+
+  signIn(event){
+    event.preventDefault()
     const request = new XMLHttpRequest()
-    request.open("GET", this.props.url + "users.json")
+    request.open("POST", this.props.url)
     request.setRequestHeader("Content-Type", "application/json")
     request.withCredentials = true
-
     request.onload = () => {
-      if (request.status === 200){
-        console.log('request.responseText', request.responseText)
-        const receivedUser = JSON.parse(request.responseText)
-        this.setUser(receivedUser)
-      }else if(request.status === 401){
-        this.setUser(null)
+      if (request.status === 201){
+        const user = JSON.parse(request.responseText)
+        this.props.onSignIn(user)
       }
     }
-    request.send(null)
-  }
-
-  componentDidMount(){
-    this.fetchUser()
-  }
-
-  render () {
-      var mainDiv = <div>
-        <h4> Please Sign In/Up </h4>
-        <SignIn url={this.props.url + "users/sign_in.json"} onSignIn={this.setUser}></SignIn>
-        <SignUp url={this.props.url + "users.json"} onSignUp={this.setUser}></SignUp>
-      </div>
-      if(this.state.currentUser){
-        mainDiv = <div>
-          <h4> Welcome {this.state.currentUser.email}</h4>
-          <SignOut url={this.props.url + "users/sign_out.json"} onSignOut={this.setUser}></SignOut>
-        </div>
+    const data = {
+      user:{
+        email:this.state.email,
+        password:this.state.password
       }
-      return (
-        <div>
-          { mainDiv }
-        </div>
-      ) 
+    }
+    request.send(JSON.stringify(data))
+  }
+  
+  render() {
+    return (
+      <form  className='login-form' >
+        <input type="text" onChange={this.handleOnChangeEmail}  placeholder="Email" />
+        <input type="password" onChange={this.handleOnChangePassword}  placeholder="Password" />
+        <button onClick={this.signIn}>  Sign In </button>
+      </form>
+    )
   }
 }
 
-export default LoginBox
+export default SignIn

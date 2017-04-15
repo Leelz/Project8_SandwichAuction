@@ -20,7 +20,7 @@ Sandwich.propTypes = {
   filling: string.isRequired,
   bread: string.isRequired,
   price: number.isRequired,
-  date: string.isRequired
+  date: string.isRequired,
   time: string.isRequired
 }
 

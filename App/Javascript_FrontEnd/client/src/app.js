@@ -12,7 +12,7 @@ class App extends React.Component{
       <Router history={hashHistory}>
         <Route path='/' component={Main}>
           <IndexRoute component={Home} />
-          <Route path='/shows' component={Listing} />
+          <Route path='/sandwiches' component={Listing} />
         </Route>
       </Router>
     )

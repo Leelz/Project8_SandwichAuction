@@ -1,64 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import SignIn from './SignIn'
-import SignUp from './SignUp' 
-import SignOut from './SignOut'
+import { Link } from 'react-router'
 
-class LoginBox extends React.Component {
+class SignOut extends React.Component{
 
-  constructor(props) {
-    super(props)
-    this.setUser = this.setUser.bind(this)
-    this.state = {
-      currentUser: null
-    }
+  constructor(){
+    super()
+    this.signOut = this.signOut.bind(this)
   }
-
-  setUser(user){
-    this.setState({currentUser:user, favlist:[]})
-  }
-
-  fetchUser(){
-    console.log("fetching user")
+  
+  signOut(event){
+    event.preventDefault()
     const request = new XMLHttpRequest()
-    request.open("GET", this.props.url + "users.json")
+    request.open("DELETE", this.props.url)
     request.setRequestHeader("Content-Type", "application/json")
     request.withCredentials = true
-
     request.onload = () => {
-      if (request.status === 200){
-        console.log('request.responseText', request.responseText)
-        const receivedUser = JSON.parse(request.responseText)
-        this.setUser(receivedUser)
-      }else if(request.status === 401){
-        this.setUser(null)
+      console.log('signed out', request.status)
+      if (request.status === 204){
+        this.props.onSignOut(null)
       }
     }
     request.send(null)
   }
 
-  componentDidMount(){
-    this.fetchUser()
-  }
-
-  render () {
-      var mainDiv = <div>
-        <h4> Please Sign In/Up </h4>
-        <SignIn url={this.props.url + "users/sign_in.json"} onSignIn={this.setUser}></SignIn>
-        <SignUp url={this.props.url + "users.json"} onSignUp={this.setUser}></SignUp>
+  render() {
+    return (
+       <div>
+        <button onClick={this.signOut}>Sign Out</button>
+        <Link className='shows-link' to='/shows'>View Shows</Link>
       </div>
-      if(this.state.currentUser){
-        mainDiv = <div>
-          <h4> Welcome {this.state.currentUser.email}</h4>
-          <SignOut url={this.props.url + "users/sign_out.json"} onSignOut={this.setUser}></SignOut>
-        </div>
-      }
-      return (
-        <div>
-          { mainDiv }
-        </div>
-      ) 
+    )
   }
 }
 
-export default LoginBox
+export default SignOut

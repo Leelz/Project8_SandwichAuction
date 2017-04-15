@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Sandwich = (props) => (
   <div className='sandwich'>
@@ -14,7 +14,7 @@ const Sandwich = (props) => (
   </div>
 )
 
-const { string, number } = PropTypes
+const { string, number } = React.PropTypes
 
 Sandwich.propTypes = {
   filling: string.isRequired,

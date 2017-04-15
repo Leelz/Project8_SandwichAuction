@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Main = (props) => (
   <div className='container'> 
@@ -7,7 +7,7 @@ const Main = (props) => (
   </div>
 )
 
-const { element } = PropTypes
+const { element } = React.PropTypes
 
 Main.propTypes = {
   children: element.isRequired

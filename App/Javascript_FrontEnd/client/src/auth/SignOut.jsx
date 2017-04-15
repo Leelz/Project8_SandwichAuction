@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router'
 
 class SignOut extends React.Component{
@@ -28,7 +28,7 @@ class SignOut extends React.Component{
     return (
        <div>
         <button onClick={this.signOut}>Sign Out</button>
-        <Link className='shows-link' to='/shows'>View Shows</Link>
+        <Link className='sandwiches-link' to='/sandwiches'>View Sandwiches</Link>
       </div>
     )
   }

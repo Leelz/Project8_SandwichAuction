@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import SignIn from './SignIn'
 import SignUp from './SignUp' 
 import SignOut from './SignOut'

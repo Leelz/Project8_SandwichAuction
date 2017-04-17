@@ -11,12 +11,17 @@ Libraries: React
 
 To run this app, you'll need to run the following commands:
 Top Level:
- npm install
+npm install
  
 In client
+
 npm install --save react react-dom
+
 npm install
+
 npm install --save-dev babel-loader babel-core babel-preset-react
+
 npm install --save react-router@3.0.2
+
 Note: older version of react so uses React.propTypes instead of PropTypes.
  

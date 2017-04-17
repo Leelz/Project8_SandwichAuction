@@ -5,9 +5,10 @@ Purpose:
 My app is designed to make eating at sandwich shops more affordable, quicker and simpler.
 
 From a sandwich shop's perspective, my app is designed to boost customers and revenue and help them gain reviews of their sandwiches.
-
 Frameworks: Rails
 Libraries: React
+
+Note: There is currently no styling or content.  This was due to time contraints on the project.
 
 To run this app, you'll need to run the following commands:
 Top Level:
